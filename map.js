@@ -3,7 +3,7 @@ const puppeteerExtra = require("puppeteer-extra");
 const stealthPlugin = require("puppeteer-extra-plugin-stealth");
 
 async function search(req, res) {
-  const query = req.body.query;
+  const query = req.query.keyword;
   console.log("query", query);
   try {
     const start = Date.now();
@@ -11,8 +11,8 @@ async function search(req, res) {
     puppeteerExtra.use(stealthPlugin());
 
     const browser = await puppeteerExtra.launch({
-      headless: true, // Set headless to true to prevent Chrome browser from showing up
-      executablePath: "", // your path here
+      headless: false, // Set headless to true to prevent Chrome browser from showing up
+      executablePath: "C:\\Program Files\\chrome-win\\chrome.exe", // your path here
     });
 
     const page = await browser.newPage();

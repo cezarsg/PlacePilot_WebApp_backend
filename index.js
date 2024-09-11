@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Define your routes
-app.post("/search", MapFunc.search);
+app.get("/search", MapFunc.search);
 app.get("/user", (req, res) => {
   res.send("Hello from user");
 });
